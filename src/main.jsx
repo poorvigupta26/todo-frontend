@@ -39,12 +39,13 @@ const appRoutes = createBrowserRouter([
 const AppWrapper =({children})=>{
   const [auth, setAuth] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({});
   return(
     <Context.Provider value={
-      {auth,
-      setAuth,
-      loading,
-      setLoading}
+      {auth,setAuth,
+      loading,setLoading,
+      user,setUser
+    }
     }>
       {children}
     </Context.Provider>

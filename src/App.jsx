@@ -1,10 +1,28 @@
 import { Outlet } from "react-router"
 import Header from "./components/Header"
 import { Toaster } from "react-hot-toast"
-
-
+import { useContext, useEffect } from "react"
+import axios from "axios"
+import { Context, server } from "./main"
 
 function App() {
+
+  const{setUser, setAuth, setLoading, user}= useContext(Context);
+
+  useEffect(()=>{
+    setLoading(true);
+    axios.get(`${server}/users/myProfile`,{
+      withCredentials:true,
+    }).then((res)=>{
+      setAuth(true);
+      setUser(res.data.user);
+      setLoading(false);
+    }).catch((error)=>{
+      setUser({});
+      setAuth(false);
+      setLoading(false);
+    })
+  }, [])
 
   return (
     <>
