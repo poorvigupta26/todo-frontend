@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios";
-import {server} from "../main";
+import {Context, server} from "../main";
 import TaskCard from '../components/TaskCard';
 import toast from 'react-hot-toast';
 
@@ -9,6 +9,7 @@ function Home() {
   const[desc, setDesc]= useState("");
   const[loading, setLoading] = useState(false);
   const[tasks, setTasks] = useState([]);
+  const{auth}=useContext(Context);
 
   const updateHandler=async(id)=>{
     try {
@@ -61,6 +62,7 @@ function Home() {
       setLoading(false);
     }
   };
+  if(auth){
   useEffect(()=>{
     axios.get(`${server}/tasks/all`,{
       withCredentials:true,
@@ -69,7 +71,7 @@ function Home() {
     }).catch((error)=>{
       toast.error(error.message);
     })
-  },[tasks]);
+  },[tasks]);};
 
   return (
     <div className="container">
