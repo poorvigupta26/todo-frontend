@@ -1,4 +1,4 @@
-$color2: rgba(255, 255, 255, 0.505);
+$color2: rgb(255, 255, 255);
 $color3: rgb(0, 0, 0);
 $color4: #000000;
 
@@ -15,12 +15,11 @@ $shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 @mixin styledText(
   $size: 1.2rem,
   $weight: 400,
-  $case: uppercase,
-  $color: $color3,
+  // $case: uppercase,
+  $color: rgb(255, 255, 255),
   $spacing: 2px
 ) {
   font-size: $size;
-  text-transform: $case;
   font-weight: $weight;
   letter-spacing: $spacing;
   color: $color;
@@ -58,7 +57,7 @@ $shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background-color: $bgColor;
   border: 1px solid $bgColor;
   color: $color;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   transition: all 0.3s;
   cursor: pointer;
   &:hover {
@@ -89,13 +88,13 @@ $shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   justify-items: $justifyContent;
 }
 
-@mixin inputs {
+@mixin inputs($color:$color2) {
   input {
     width: 100%;
     padding: 1rem;
     border: 1px solid $color4;
     font: 400 1rem $text1;
-    background-color: $color2;
+    background-color: $color;
     outline: none;
   }
 }

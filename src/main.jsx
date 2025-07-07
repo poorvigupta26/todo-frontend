@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx';
 import Profile from './pages/Profile.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import Landing from './pages/Landing.jsx';
 
 export const server ="https://dailydally.onrender.com";
 
@@ -17,6 +18,10 @@ const appRoutes = createBrowserRouter([
     children:[
       {
         path:"/",
+        element:<Landing/>
+      },
+      {
+        path:"/home",
         element:<Home/>
       },
       {

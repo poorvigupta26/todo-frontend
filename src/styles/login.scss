@@ -10,5 +10,8 @@
       @include styledText(0.9rem);
       @include myButton(18.75rem, 1rem);
     }
+     a{
+      @include styledText(1rem,500,black,0.5px)
+     }
   }
 }

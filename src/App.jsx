@@ -7,12 +7,9 @@ import { Context, server } from "./main"
 
 function App() {
 
-  const{setUser, setAuth, setLoading, user, auth}= useContext(Context);
-
+  const{setUser, setAuth, setLoading}= useContext(Context);
   useEffect(()=>{
-    setLoading(true);
-    if(auth)
-    {axios.get(`${server}/users/myProfile`,{
+    axios.get(`${server}/users/myProfile`,{
       withCredentials:true,
     }).then((res)=>{
       setAuth(true);
@@ -22,9 +19,8 @@ function App() {
       setUser({});
       setAuth(false);
       setLoading(false);
-    })}
+    })
   }, [])
-
   return (
     <>
     <Header/>

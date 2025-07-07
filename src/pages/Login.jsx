@@ -1,14 +1,11 @@
 import React ,{ useContext, useState } from 'react'
-import { Link, Navigate } from 'react-router'
+import { Link, Navigate } from 'react-router-dom'
 import { Context, server } from '../main';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
 
 function Login() {
-
-   
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {auth, setAuth, loading, setLoading} = useContext(Context);
@@ -33,7 +30,7 @@ function Login() {
             setLoading(false);
         }
 }
-      if(auth) return <Navigate to={"/"}/>
+      if(auth) return <Navigate to={"/home"}/>
 
   return (
     <div className="login">
@@ -54,8 +51,8 @@ function Login() {
                     required
                     placeholder='Password' />
                     <button  disabled={loading} type="submit">Log in</button>
-                <h4> or </h4>
-                <Link to={"/signup"}>Sign Up</Link>
+                    <h4> or </h4>
+                    <Link to={"/signup"}> Sign Up</Link>
             </form>
         </section>
     </div>
